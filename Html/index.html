@@ -20,17 +20,27 @@
     />
 
     <!-- Css -->
-    <link rel="stylesheet" href="/Css/index.css" />
+    <link rel="stylesheet" id="stylesheet" href="/Css/lightMode.css" />
+    <link rel="stylesheet" href="/Css/sharedCss.css" />
 
     <!-- Javascript -->
-    <script src="script.js"></script>
+    <script src="/Javascript/script.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/Assets/Images/Favicon.png" type="image/x-icon" />
   </head>
 
   <body>
+    <button class="open-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
     <nav>
       <div class="header-red-glow"></div>
-      <a href="" class="logo">
+      <a href="" class="logo navLogo">
         <img src="/Assets/Images/Logo.png" alt="" />
+      </a>
+      <a href="" class="dark-logo navLogo">
+        <img src="/Assets/Images/darklogo.png" alt="" />
       </a>
       <ul>
         <li><a href="#offers-section">today special offers</a></li>
@@ -38,13 +48,17 @@
         <li><a href="#search-food-section">our menu</a></li>
         <li><a href="">our popular food</a></li>
         <li><a href="" class="btn1">download app</a></li>
-        <li class="theme-btn">
-          <a href="" class="">
-            <i class="fa-solid fa-moon"></i>
-          </a>
+        <li class="themebtn-and-xbtn">
+          <button class="theme-btn">
+            <div class="circle"></div>
+          </button>
+          <button class="close-nav">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </li>
       </ul>
     </nav>
+    <img src="/Assets/Images/Ellipse 42.png" alt="" class="ellipse-curved" />
     <header>
       <div class="header-text-container">
         <div class="people-trust">
@@ -91,11 +105,6 @@
         </a>
       </div>
       <div class="header-image-container">
-        <img
-          src="/Assets/Images/Ellipse 42.png"
-          alt=""
-          class="ellipse-curved"
-        />
         <img src="/Assets/Images/Vector 2.png" alt="" class="header-vector-1" />
         <img src="/Assets/Images/Orange.png" alt="" class="header-orange" />
         <div class="circle-container">
@@ -799,10 +808,10 @@
         </li>
         <div class="footer-contact-container">
           <input type="text" placeholder="Email" />
-          <button>Subscribe</button>
+          <button class="btn1">Subscribe</button>
         </div>
       </ul>
     </footer>
-    <p class="copyright" id="hidden">Website Created By Younes AMAZZAL</p>
+    <p class="copyright">Website Created By Younes AMAZZAL</p>
   </body>
 </html>

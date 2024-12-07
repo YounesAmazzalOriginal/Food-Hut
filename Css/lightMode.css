@@ -23,12 +23,12 @@ html {
   --dark-color: #191919;
   --red-color: #f54748;
   --yellow-color: #fdc55e;
-  --white-color: #ffffff;
+  --white-color: #000;
   --gradient-bg-1: #ffc26b;
   --gradient-bg-2: #ff8d8e;
 
   --gray: #2f2f2f;
-  --darkgray: #0d0d0d;
+  --darkgray: white;
 }
 
 body {
@@ -76,7 +76,7 @@ h1 span {
 }
 .btn1 {
   background-color: var(--red-color);
-  color: black;
+  color: white;
   padding: 8px 20px;
   border-radius: 100px;
   border: 1px dashed transparent;
@@ -105,7 +105,7 @@ h1 span {
   right: 15px;
   color: var(--dark-color);
 } */
-.dark-logo {
+.logo {
   display: none;
 }
 nav {
@@ -116,6 +116,7 @@ nav {
   /* padding-top: 15px; */
   padding-block: 10px;
 }
+
 nav ul {
   display: flex;
   flex-wrap: wrap;
@@ -153,8 +154,8 @@ header {
   margin-inline: 120px;
 }
 /* header .header-text-container {
-  width: 35%;
-} */
+    width: 35%;
+  } */
 header .header-text-container .people-trust {
   background-color: rgba(0, 0, 0, 0.473);
   border-radius: 100px;
@@ -176,6 +177,11 @@ header .header-text-container .people-trust .people-trust-icon {
   align-items: center;
   color: white;
 }
+header .header-text-container .people-trust h5 {
+  font-weight: 200;
+  color: white;
+}
+
 header h1.header-title {
   text-transform: capitalize;
   font-size: 2.8rem;
@@ -207,7 +213,6 @@ header .header-search-container {
   align-items: center;
   justify-content: space-between;
 
-  background-color: rgba(0, 0, 0, 0.548);
   padding: 5px;
   border: 1px solid var(--gray);
   border-radius: 100px;
@@ -388,7 +393,7 @@ header .header-suggested-food-container {
   position: absolute;
   top: 150px;
   left: -30px;
-  background-color: var(--dark-color);
+  background-color: white;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -446,7 +451,7 @@ header
 }
 
 header .header-suggested-customer-container {
-  background-color: var(--dark-color);
+  background-color: white;
   border-radius: 100px;
   width: fit-content;
   padding: 3px;
@@ -598,7 +603,7 @@ header .ellipse {
   /* background: linear-gradient(transparent, var(--red-color), 100deg); */
   background: linear-gradient(
     transparent 0%,
-    /* var(--red-color) 100%, */ hsla(0, 90%, 62%, 0.349) 100%,
+    /* var(--red-color) 100%, */ hsla(0, 90%, 62%, 0.2) 100%,
     transparent 55%
   );
   border-radius: 20px;
@@ -1038,7 +1043,7 @@ header .ellipse {
   /* background: linear-gradient(transparent, var(--red-color), 100deg); */
   background: linear-gradient(
     transparent 0%,
-    /* var(--red-color) 100%, */ hsla(0, 90%, 62%, 0.349) 100%,
+    hsla(0, 90%, 62%, 0.2) 100%,
     transparent 55%
   );
   border-radius: 20px;
@@ -1367,7 +1372,8 @@ footer ul:nth-child(4) .footer-contact-container {
 }
 footer ul:nth-child(4) .footer-contact-container input {
   width: 70%;
-  background-color: hsl(0, 0%, 10%);
+  /* background-color: hsl(0, 0%, 10%); */
+  border: 1px solid var(--gray);
   border-radius: 100px;
   height: 100%;
   padding-left: 15px;
@@ -1572,9 +1578,7 @@ img::selection {
   .open-nav {
     display: flex !important;
   }
-  .btn1 {
-    color: white;
-  }
+
   nav {
     flex-direction: column;
     align-items: center;
