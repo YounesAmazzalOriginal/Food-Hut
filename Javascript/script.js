@@ -26,61 +26,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // /Toggle Nav
 
-  // Switch Mode
-  let themeSwitcher = false;
+  let switchTheme = true;
   document.querySelector(".theme-btn").addEventListener("click", () => {
-    themeSwitcher = !themeSwitcher;
+    switchTheme = !switchTheme;
+
+    const circle = document.querySelector(".theme-btn .circle");
     const stylesheet = document.querySelector("#stylesheet");
-    stylesheet.href = themeSwitcher ? "/Css/index.css" : "/Css/lightMode.css";
 
-    localStorage.setItem("mode", stylesheet.href);
+    circle.style.marginLeft = switchTheme ? "21px" : "2px";
+    circle.style.backgroundColor = switchTheme ? "white" : "var(--dark-color)";
+    stylesheet.href = switchTheme ? "/Css/index.css" : "/Css/lightMode.css";
 
-    const circle = document.querySelector(".theme-btn .circle");
-    circle.style.marginLeft = themeSwitcher ? "20px" : "3px";
-    circle.style.backgroundColor = themeSwitcher
-      ? "white"
-      : "var(--dark-color)";
-    circle.style.color = themeSwitcher ? "var(--dark-color)" : "white";
-
-    localStorage.setItem("circlesituation", circle.style.marginLeft);
+    localStorage.setItem("circleMl", circle.style.marginLeft);
     localStorage.setItem("circleBg", circle.style.backgroundColor);
-    localStorage.setItem("circleColor", circle.style.color);
+    localStorage.setItem("css", stylesheet.href);
 
-    //
-    if (
-      window.matchMedia("(min-width: 320px) and (max-width: 599px)").matches
-    ) {
-      const nav = document.querySelector("nav");
-      nav.style.backgroundColor = themeSwitcher ? "black" : "white";
-
-      localStorage.setItem("mobileNavBg", nav.style.backgroundColor);
-    }
-  });
-  const savedMode = localStorage.getItem("mode");
-  const savedCircleSituation = localStorage.getItem("circlesituation");
-  const savedCircleBg = localStorage.getItem("circleBg");
-  const savedCirclecolor = localStorage.getItem("circleColor");
-  const savedCircleIcon = localStorage.getItem("icon");
-  const savedMobileNavBg = localStorage.getItem("mobileNavBg");
-
-  if (
-    savedMode &&
-    savedCircleSituation &&
-    savedCircleBg &&
-    savedCirclecolor &&
-    savedCircleIcon &&
-    savedMobileNavBg
-  ) {
-    const circle = document.querySelector(".theme-btn .circle");
+    // Change Mobile Nav Bg
+    const mediaQuery = window.matchMedia(
+      "(min-width: 320px) and (max-width: 599px)"
+    );
     const nav = document.querySelector("nav");
-    stylesheet.href = savedMode;
-    circle.style.backgroundColor = savedCircleBg;
-    circle.style.marginLeft = savedCircleSituation;
-    circleIcon.classList(savedCircleIcon);
 
+    function handleMediaQueryChange(e) {
+      if (e.matches) {
+        nav.style.backgroundColor = switchTheme ? "black" : "white";
+        localStorage.setItem("MobileNavBg", nav.style.backgroundColor);
+      } else {
+      }
+    }
+    handleMediaQueryChange(mediaQuery);
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    // /Change Mobile Nav Bg
+  });
+
+  const savedCircleMl = localStorage.getItem("circleMl");
+  const savedCircleBg = localStorage.getItem("circleBg");
+  const savedCss = localStorage.getItem("css");
+  const savedMobileNavBg = localStorage.getItem("MobileNavBg");
+
+  if (savedCircleMl && savedCircleBg && savedCss && savedMobileNavBg) {
+    const circle = document.querySelector(".theme-btn .circle");
+    const stylesheet = document.querySelector("#stylesheet");
+    const nav = document.querySelector("nav");
+
+    circle.style.marginLeft = savedCircleMl;
+    circle.style.backgroundColor = savedCircleBg;
+    stylesheet.href = savedCss;
     nav.style.backgroundColor = savedMobileNavBg;
   }
-  // /Switch Mode
 });
 
 function filterBtn(target) {

@@ -1544,7 +1544,7 @@ img::selection {
     gap: 10px;
   }
   .close-nav {
-    display: flex;
+    display: flex !important;
     color: white;
   }
   .theme-btn {
@@ -1571,6 +1571,9 @@ img::selection {
 
 /* Phone */
 @media (min-width: 320px) and (max-width: 599px) {
+  .offers-section .food-cards-container:hover .food-single-card:not(:hover) {
+    opacity: 100%;
+  }
   body {
     overflow-x: hidden;
     width: 100%;
@@ -1614,7 +1617,7 @@ img::selection {
     gap: 10px;
   }
   .close-nav {
-    display: flex;
+    display: flex !important;
     color: white;
   }
   .theme-btn {
